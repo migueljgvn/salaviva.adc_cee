@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdC - Sala Viva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="home-screen" id="homeScreen" aria-labelledby="homeTitle">
+    <header class="home-topbar">
+      <div class="brand">
+        <div class="brand-mark wide-mark" aria-hidden="true">
+          <img src="assets/sala-viva-logo.png" alt="">
+        </div>
+        <div>
+          <strong>AdC - Sala Viva</strong>
+          <span>Árvore da Ciência / CEE</span>
+        </div>
+      </div>
+      <button class="secondary-button" type="button" id="homeLoginButton">Entrar</button>
+    </header>
+
+    <main class="home-hero" aria-label="Página inicial">
+      <section class="home-copy">
+        <p class="eyebrow">AdC + CEE</p>
+        <h1 id="homeTitle">AdC - Sala Viva</h1>
+        <p>Ambiente escolar para turmas, atividades, agenda, notas, contas e apoio inteligente com a Rub.</p>
+        <div class="home-actions">
+          <button class="primary-button" type="button" id="homeEnterButton">Entrar na plataforma</button>
+          <button class="secondary-button" type="button" id="homeAccessCourse">Acessar turma</button>
+        </div>
+      </section>
+
+      <section class="home-gallery" aria-label="Marcas do projeto">
+        <figure>
+          <img src="assets/arvore-ciencia.png" alt="Árvore da Ciência">
+        </figure>
+        <figure class="featured-logo">
+          <img src="assets/sala-viva-logo.png" alt="Sala Viva">
+        </figure>
+        <figure>
+          <img src="assets/cee-logo.png" alt="CEE - Centro de Excelência Educacional">
+        </figure>
+      </section>
+    </main>
+  </section>
+
+  <section class="login-screen hidden" id="loginScreen" aria-labelledby="loginTitle">
+    <div class="login-art" aria-hidden="true">
+      <img src="assets/sala-viva-logo.png" alt="">
+    </div>
+
+    <div class="auth-card">
+      <div class="brand auth-brand">
+        <div class="brand-mark wide-mark" aria-hidden="true">
+          <img src="assets/sala-viva-logo.png" alt="">
+        </div>
+        <div>
+          <strong>AdC - Sala Viva</strong>
+          <span>Árvore da Ciência / CEE - Centro de Excelência Educacional</span>
+        </div>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <div>
+          <p class="eyebrow">AdC + CEE</p>
+          <h1 id="loginTitle">Entrar na plataforma</h1>
+        </div>
+
+        <label class="field">
+          Email institucional
+          <input type="email" id="loginEmail" autocomplete="email" placeholder="voce@escola.com" required>
+        </label>
+
+        <label class="field">
+          Senha
+          <span class="password-field">
+            <input type="password" id="loginPassword" autocomplete="current-password" placeholder="Mínimo 6 caracteres, acentos e símbolos" required>
+            <button type="button" id="togglePassword" aria-label="Mostrar senha">Ver</button>
+          </span>
+        </label>
+
+        <label class="field">
+          Perfil
+          <select id="loginRole">
+            <option value="Professor">Professor</option>
+            <option value="Aluno">Aluno</option>
+            <option value="Coordenador">Coordenador</option>
+            <option value="Diretor">Diretor</option>
+            <option value="Vice-diretor">Vice-diretor</option>
+            <option value="Secretaria escolar">Secretaria escolar</option>
+            <option value="Orientador educacional">Orientador educacional</option>
+            <option value="Responsavel">Responsavel</option>
+            <option value="Monitor">Monitor</option>
+            <option value="Tutor">Tutor</option>
+            <option value="Administrador CEE">Administrador CEE</option>
+            <option value="Administrador universal AdC/CEE">Administrador universal AdC/CEE</option>
+            <option value="Visitante">Visitante</option>
+          </select>
+        </label>
+
+        <div class="auth-options">
+          <label><input type="checkbox" id="rememberLogin" checked> Manter conectado</label>
+          <label><input type="checkbox" id="trustDevice"> Dispositivo confiavel</label>
+        </div>
+
+        <div class="login-hint">
+          <strong>Acesso protegido</strong>
+          <span>Use uma conta criada pelo administrador ou o acesso autorizado deste computador.</span>
+          <span>Símbolos aceitos na senha: `´;:?/°}]/ºª§'-=++_{}&quot;!@#$%¨&amp;*()ç</span>
+        </div>
+
+        <button class="secondary-button wide-button" type="button" id="fillAdminLogin">Usar acesso autorizado</button>
+        <button class="primary-button wide-button" type="submit">Continuar</button>
+        <button class="text-button" type="button" id="backToHome">Voltar ao início</button>
+      </form>
+
+      <form id="mfaForm" class="auth-form hidden">
+        <div>
+          <p class="eyebrow">Verificação</p>
+          <h1>Código de acesso</h1>
+        </div>
+        <label class="field">
+          Código de 6 dígitos
+          <input type="text" id="mfaCode" inputmode="numeric" maxlength="6" placeholder="Código da conta" required>
+        </label>
+        <div class="form-row">
+          <button class="secondary-button" type="button" id="backToLogin">Voltar</button>
+          <button class="primary-button" type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="app-shell hidden" id="appShell">
+    <aside class="sidebar" aria-label="Navegacao principal">
+      <div class="brand">
+        <div class="brand-mark wide-mark" aria-hidden="true">
+          <img src="assets/sala-viva-logo.png" alt="">
+        </div>
+        <div>
+          <strong>AdC - Sala Viva</strong>
+          <span>Árvore da Ciência / CEE - Centro de Excelência Educacional</span>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Secoes">
+        <button class="nav-item active" type="button" data-view="turmas">
+          <span aria-hidden="true">H</span>
+          Turmas
+        </button>
+        <button class="nav-item" type="button" data-view="agenda">
+          <span aria-hidden="true">D</span>
+          Agenda
+        </button>
+        <button class="nav-item" type="button" data-view="notas">
+          <span aria-hidden="true">V</span>
+          Notas
+        </button>
+        <button class="nav-item admin-only hidden" type="button" data-view="contas">
+          <span aria-hidden="true">C</span>
+          Contas
+        </button>
+        <button class="nav-item" type="button" data-view="ia">
+          <span aria-hidden="true">R</span>
+          Rub
+        </button>
+      </nav>
+
+      <section class="mini-panel">
+        <p>Proxima aula</p>
+        <strong id="nextLessonName">Literatura</strong>
+        <span id="nextLessonTime">Hoje, 14:30</span>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <label class="search">
+          <span aria-hidden="true">Q</span>
+          <input type="search" id="searchInput" placeholder="Buscar turmas, atividades ou alunos">
+        </label>
+        <div class="top-actions">
+          <div class="create-wrap">
+            <button class="primary-button create-button" type="button" id="openCreateMenu">+ Criar</button>
+            <div class="create-menu hidden" id="createMenu">
+              <button type="button" data-create="aviso">Aviso</button>
+              <button type="button" data-create="atividade">Atividade</button>
+              <button type="button" data-create="aula">Aula</button>
+              <button type="button" data-create="material">Material</button>
+              <button type="button" data-create="turma">Turma</button>
+              <button type="button" data-create="conta">Criar conta</button>
+              <button type="button" data-create="aluno">Criar aluno</button>
+              <button type="button" data-create="advertencia">Advertencia</button>
+            </div>
+          </div>
+          <button class="icon-button" type="button" aria-label="Notificacoes">!</button>
+          <div class="profile-wrap">
+            <button class="profile-button" type="button" id="profileButton" aria-label="Abrir perfil">AS</button>
+            <div class="profile-menu hidden" id="profileMenu">
+              <strong id="profileName">Ana Souza</strong>
+              <span id="profileRole">Professor</span>
+              <button type="button" id="logoutButton">Sair</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="view-panel" id="turmasView" data-view-panel="turmas">
+        <section class="course-hero" aria-labelledby="courseTitle">
+          <div class="hero-copy">
+            <p class="eyebrow">AdC / CEE - Turma ativa</p>
+            <h1 id="courseTitle">Matematica 2B</h1>
+            <p id="courseDescription">Equacoes, funcoes e projetos semanais para o segundo bimestre.</p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" id="openCreateMain">Criar</button>
+              <button class="secondary-button" type="button" id="accessCourseButton">Acessar turma</button>
+              <button class="secondary-button" type="button" id="deleteCourse">Excluir turma</button>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <img src="assets/arvore-ciencia.png" alt="">
+          </div>
+        </section>
+
+        <section class="course-strip" aria-label="Lista de turmas" id="courseStrip"></section>
+
+        <div class="content-grid">
+          <section class="main-panel" aria-labelledby="streamTitle">
+            <div class="tabs" role="tablist" aria-label="Conteudo da turma">
+              <button class="tab active" type="button" data-tab="mural" role="tab" aria-selected="true">Mural</button>
+              <button class="tab" type="button" data-tab="atividades" role="tab" aria-selected="false">Atividades</button>
+              <button class="tab" type="button" data-tab="pessoas" role="tab" aria-selected="false">Pessoas</button>
+            </div>
+
+            <form class="composer hidden" id="composer" aria-label="Criar aviso">
+              <label for="postText">Novo aviso</label>
+              <textarea id="postText" rows="3" placeholder="Compartilhe um recado com a turma"></textarea>
+              <label class="file-drop" for="postFiles">
+                <span>Anexar arquivos</span>
+                <small>PDF, imagem, documento ou planilha</small>
+                <input type="file" id="postFiles" multiple>
+              </label>
+              <div class="attachment-list" id="postAttachmentList"></div>
+              <div class="composer-actions">
+                <button class="secondary-button" type="button" id="cancelComposer">Cancelar</button>
+                <button class="primary-button" type="submit">Publicar</button>
+              </div>
+            </form>
+
+            <div id="panelContent"></div>
+          </section>
+
+          <aside class="side-panel" aria-label="Resumo da turma">
+            <section class="metric-block">
+              <p>Entregas pendentes</p>
+              <strong id="pendingCount">7</strong>
+            </section>
+            <section class="metric-block">
+              <p>Media da turma</p>
+              <strong id="averageScore">8.4</strong>
+            </section>
+            <section class="upcoming">
+              <div class="section-heading">
+                <h2>Proximos prazos</h2>
+              </div>
+              <ul id="deadlineList"></ul>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view-panel hidden" id="agendaView" data-view-panel="agenda">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Agenda</p>
+            <h1>Agenda escolar</h1>
+            <p>Aulas, prazos, reunioes e lembretes da plataforma.</p>
+          </div>
+        </div>
+
+        <div class="utility-grid">
+          <form class="main-panel agenda-form" id="agendaForm">
+            <div class="section-heading">
+              <h2>Novo evento</h2>
+            </div>
+            <div class="form-grid">
+              <label class="field">
+                Titulo
+                <input type="text" id="agendaTitle" placeholder="Aula, reuniao ou prazo" required>
+              </label>
+              <label class="field">
+                Turma
+                <select id="agendaCourse"></select>
+              </label>
+              <label class="field">
+                Data
+                <input type="date" id="agendaDate" required>
+              </label>
+              <label class="field">
+                Horario
+                <input type="time" id="agendaTime">
+              </label>
+              <label class="field">
+                Tipo
+                <select id="agendaType">
+                  <option value="Aula">Aula</option>
+                  <option value="Prazo">Prazo</option>
+                  <option value="Reuniao">Reuniao</option>
+                  <option value="Prova">Prova</option>
+                  <option value="Lembrete">Lembrete</option>
+                </select>
+              </label>
+            </div>
+            <label class="field">
+              Observacoes
+              <textarea id="agendaNotes" rows="3" placeholder="Detalhes do evento"></textarea>
+            </label>
+            <div class="form-row">
+              <button class="primary-button" type="submit">Adicionar evento</button>
+            </div>
+          </form>
+
+          <aside class="side-panel">
+            <section class="metric-block">
+              <p>Eventos ativos</p>
+              <strong id="agendaTotal">0</strong>
+            </section>
+            <section class="metric-block">
+              <p>Hoje</p>
+              <strong id="agendaToday">0</strong>
+            </section>
+            <section class="metric-block">
+              <p>Pendentes</p>
+              <strong id="agendaPending">0</strong>
+            </section>
+          </aside>
+        </div>
+
+        <section class="main-panel list-panel">
+          <div class="panel-toolbar">
+            <div class="section-heading">
+              <h2>Eventos</h2>
+            </div>
+            <div class="toolbar-fields">
+              <label class="field compact-field">
+                Turma
+                <select id="agendaCourseFilter"></select>
+              </label>
+              <label class="field compact-field">
+                Status
+                <select id="agendaStatusFilter">
+                  <option value="ativos">Ativos</option>
+                  <option value="todos">Todos</option>
+                  <option value="concluido">Concluidos</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <ul class="agenda-list" id="agendaList"></ul>
+        </section>
+      </section>
+
+      <section class="view-panel hidden" id="notasView" data-view-panel="notas">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Notas</p>
+            <h1>Diario de notas</h1>
+            <p>Lance notas por aluno e acompanhe medias da turma.</p>
+          </div>
+        </div>
+
+        <section class="main-panel list-panel">
+          <div class="panel-toolbar">
+            <div class="section-heading">
+              <h2>Boletim da turma</h2>
+            </div>
+            <label class="field compact-field">
+              Turma
+              <select id="gradeCourseSelect"></select>
+            </label>
+          </div>
+          <div class="grade-summary" id="gradeSummary"></div>
+          <div class="gradebook-wrap" id="gradebookTable"></div>
+        </section>
+      </section>
+
+      <section class="view-panel hidden" id="contasView" data-view-panel="contas">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Administracao</p>
+            <h1>Contas cadastradas</h1>
+            <p>Area visivel somente para administradores.</p>
+          </div>
+          <button class="primary-button" type="button" id="openCreateAccountFromAccounts">Criar conta</button>
+        </div>
+
+        <div class="grade-summary">
+          <section class="metric-block">
+            <p>Total de contas</p>
+            <strong id="accountTotal">0</strong>
+          </section>
+          <section class="metric-block">
+            <p>Administradores</p>
+            <strong id="accountAdmins">0</strong>
+          </section>
+          <section class="metric-block">
+            <p>Contas criadas</p>
+            <strong id="accountCreatedTotal">0</strong>
+          </section>
+          <section class="metric-block">
+            <p>Segurança</p>
+            <strong>OK</strong>
+          </section>
+        </div>
+
+        <section class="main-panel list-panel">
+          <div class="panel-toolbar">
+            <div class="section-heading">
+              <h2>Lista de contas</h2>
+            </div>
+          </div>
+          <div class="account-list" id="accountsList"></div>
+        </section>
+      </section>
+
+      <section class="view-panel hidden" id="iaView" data-view-panel="ia">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Rub</p>
+            <h1>Assistente inteligente</h1>
+            <p>Ajuda rápida sobre contas, turmas, agenda, notas, advertências e links.</p>
+          </div>
+        </div>
+
+        <section class="main-panel assistant-shell">
+          <div class="assistant-messages" id="aiMessages"></div>
+          <div class="quick-prompts" aria-label="Perguntas rapidas">
+            <button type="button" data-ai-prompt="Como criar uma conta?">Criar conta</button>
+            <button type="button" data-ai-prompt="Como adicionar aluno?">Adicionar aluno</button>
+            <button type="button" data-ai-prompt="Como criar advertencia?">Advertencia</button>
+            <button type="button" data-ai-prompt="Como abrir em outro computador?">Link externo</button>
+          </div>
+          <form class="assistant-form" id="aiForm">
+            <input type="text" id="aiInput" placeholder="Pergunte algo para a Rub">
+            <button class="primary-button" type="submit">Enviar</button>
+          </form>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="accessCourseModal" role="dialog" aria-modal="true" aria-labelledby="accessCourseTitle">
+    <form class="modal-card compact-modal" id="accessCourseForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">Código da turma</p>
+          <h2 id="accessCourseTitle">Acessar turma</h2>
+        </div>
+        <button class="icon-button" type="button" id="closeAccessCourse" aria-label="Fechar">x</button>
+      </div>
+
+      <label class="field">
+        Código
+        <input type="text" id="accessCourseCode" placeholder="Exemplo: MAT-2B-84" required>
+      </label>
+
+      <div class="form-row">
+        <button class="secondary-button" type="button" id="cancelAccessCourse">Cancelar</button>
+        <button class="primary-button" type="submit">Acessar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-backdrop hidden" id="createModal" role="dialog" aria-modal="true" aria-labelledby="createTitle">
+    <form class="modal-card" id="createForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">Criacao</p>
+          <h2 id="createTitle">Criar item</h2>
+        </div>
+        <button class="icon-button" type="button" id="closeCreateModal" aria-label="Fechar">x</button>
+      </div>
+
+      <div class="form-grid">
+        <label class="field">
+          Tipo
+          <select id="createType">
+            <option value="aviso">Aviso</option>
+            <option value="atividade">Atividade</option>
+            <option value="aula">Aula</option>
+            <option value="material">Material</option>
+            <option value="turma">Turma</option>
+            <option value="conta">Criar conta</option>
+            <option value="aluno">Criar aluno</option>
+            <option value="advertencia">Advertencia</option>
+          </select>
+        </label>
+
+        <label class="field" id="createDateWrap">
+          Data ou prazo
+          <input type="text" id="createDate" placeholder="Amanha, 24 mai, sexta 14:30">
+        </label>
+
+        <label class="field hidden" id="createPointsWrap">
+          Pontos
+          <input type="number" id="createPoints" min="0" max="100" value="10">
+        </label>
+
+        <label class="field" id="createItemTitleWrap">
+          Titulo
+          <input type="text" id="createItemTitle" placeholder="Titulo" required>
+        </label>
+      </div>
+
+      <div class="form-grid hidden" id="accountFields">
+        <label class="field">
+          Email da conta
+          <input type="email" id="createAccountEmail" placeholder="usuario@escola.com">
+        </label>
+
+        <label class="field">
+          Senha da conta
+          <input type="text" id="createAccountPassword" placeholder="Senha com acentos e símbolos">
+        </label>
+
+        <label class="field">
+          Código de acesso
+          <input type="text" id="createAccountCode" inputmode="numeric" maxlength="6" placeholder="Gerado automaticamente">
+        </label>
+
+        <label class="field">
+          Perfil da conta
+          <select id="createAccountRole"></select>
+        </label>
+      </div>
+
+      <div class="form-grid hidden" id="studentFields">
+        <label class="field">
+          Email da conta do aluno
+          <input type="email" id="createStudentEmail" placeholder="email criado pelo adm universal">
+        </label>
+      </div>
+
+      <div class="form-grid hidden" id="warningFields">
+        <label class="field">
+          Aluno
+          <select id="warningStudent"></select>
+        </label>
+
+        <label class="field">
+          Tipo
+          <select id="warningType">
+            <option value="Advertencia">Advertencia</option>
+            <option value="Ponto de atencao">Ponto de atencao</option>
+            <option value="Suspensao pedagogica">Suspensao pedagogica</option>
+            <option value="Encaminhamento">Encaminhamento</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="field" id="createBodyWrap">
+        Descricao
+        <textarea id="createBody" rows="4" placeholder="Escreva os detalhes"></textarea>
+      </label>
+
+      <label class="file-drop" for="createFiles" id="createFilesDrop">
+        <span>Anexar arquivos</span>
+        <small>Os anexos ficam salvos como nome, tipo e tamanho</small>
+        <input type="file" id="createFiles" multiple>
+      </label>
+      <div class="attachment-list" id="createAttachmentList"></div>
+
+      <div class="form-row">
+        <button class="secondary-button" type="button" id="cancelCreate">Cancelar</button>
+        <button class="primary-button" type="submit">Criar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

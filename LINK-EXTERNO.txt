@@ -1,0 +1,16 @@
+AdC - Sala Viva: link fora da mesma rede
+
+O link http://127.0.0.1:4173 funciona apenas neste computador.
+O link http://192.168.0.77:4173 funciona apenas em aparelhos na mesma rede.
+
+Para enviar para outro computador fora da sua rede, use uma destas opcoes:
+
+1. Link temporario com Cloudflare Tunnel
+- Instale o cloudflared.
+- Abra o arquivo link-publico-cloudflare.bat.
+- Copie a URL https://...trycloudflare.com que aparecer.
+- O link funciona enquanto a janela ficar aberta.
+
+2. Link fixo para sempre
+- Hospede a pasta do site em GitHub Pages, Netlify, Vercel ou servidor proprio.
+- Esse e o unico jeito correto de ter um link publico que continue funcionando mesmo com seu PC desligado.
